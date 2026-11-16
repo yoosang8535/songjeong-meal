@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17457f">
+<title>송정중학교 급식 안내</title>
+<style>
+:root{--navy:#17457f;--blue:#2866b2;--sky:#eaf3ff;--bg:#f3f6fb;--ink:#243247;--muted:#718096;--line:#e4eaf2;--white:#fff;--shadow:0 8px 28px rgba(30,62,105,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.hero{background:linear-gradient(120deg,#153d72,#3478c9);color:#fff;padding:28px 22px 0}
+.wrap{max-width:1080px;margin:auto}.brand{display:flex;align-items:center;gap:14px}.crest{width:58px;height:58px;border-radius:50%;background:#ffffff20;display:grid;place-items:center;padding:2px;flex:none}.crest svg{width:100%;height:100%}.brand strong{font-size:20px;letter-spacing:-.5px}.brand small{display:block;margin-top:5px;color:#d9e9ff;font-size:11px;letter-spacing:1.4px}
+.hero h1{font-size:29px;margin:28px 0 7px;letter-spacing:-1px}.hero .intro{font-size:13px;color:#dceaff;margin:0 0 24px}
+.nav{display:flex;gap:7px;overflow-x:auto}.nav button{white-space:nowrap;border:0;border-radius:10px 10px 0 0;background:#ffffff1b;color:#eaf3ff;padding:13px 19px;font-size:13px}.nav button.active{background:var(--bg);color:var(--navy);font-weight:700}
+main{max-width:1080px;margin:25px auto 55px;padding:0 18px}.notice{background:#fff8e7;border:1px solid #f2e6c7;color:#795c22;border-radius:11px;padding:12px 15px;font-size:12px;line-height:1.65;margin-bottom:18px}
+.page{display:none}.page.active{display:block}.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:17px;box-shadow:var(--shadow)}
+.card h2{font-size:19px;margin:0 0 16px;letter-spacing:-.4px}.eyebrow{color:var(--blue);font-weight:700;font-size:12px}.muted{color:var(--muted);font-size:12px}
+.meal-banner{background:linear-gradient(135deg,#edf5ff,#f6f9ff);border-radius:14px;padding:17px}.meal-emoji{text-align:center;font-size:38px;padding:7px 0 15px}
+.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.menu-item{background:#fff;border:1px solid #e8eef7;border-radius:10px;padding:12px;font-size:13px}
+.calorie{background:#f6f8fb;border-radius:11px;padding:14px;margin-top:13px;color:var(--navy);font-weight:700;font-size:14px}
+.nutrition{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.nutri{background:#f4f7fb;border-radius:11px;padding:14px 8px;text-align:center}.nutri b{display:block;color:var(--navy);font-size:18px}.nutri span{font-size:11px;color:var(--muted)}
+.primary{border:0;background:var(--navy);color:white;padding:12px 17px;border-radius:9px;font-weight:700}.primary:hover{background:var(--blue)}.secondary{border:1px solid #d8e2ef;background:#fff;color:var(--navy);padding:10px 14px;border-radius:9px}
+.month-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.month-head button{border:0;background:var(--sky);color:var(--navy);border-radius:9px;padding:10px 15px}.month-title{font-weight:700;font-size:19px}
+.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}.weekday,.date-cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}.weekday{text-align:center;padding:11px 2px;background:#f7f9fc;font-size:12px;font-weight:700}.date-cell{min-height:105px;padding:8px 6px;background:#fff;text-align:left;color:var(--ink);border-top:0;border-left:0}.date-cell:disabled{cursor:default;color:#b8c1ce}.date-cell.today{background:#eef5ff}.date-cell.selected{outline:2px solid var(--blue);outline-offset:-2px}.date-cell .daynum{font-size:12px;font-weight:700}.date-cell .preview{display:block;margin-top:7px;font-size:10px;line-height:1.4;color:#62748b;overflow-wrap:anywhere}.date-cell .dot{display:inline-block;width:5px;height:5px;background:#4a85ca;border-radius:50%;margin-right:4px}
+.stars{display:flex;gap:7px;margin:13px 0}.star{border:0;background:none;padding:0;font-size:32px;color:#d4dce7}.star.on{color:#f0b43c}
+textarea,input[type=text],input[type=password]{width:100%;border:1px solid #dce4ee;border-radius:9px;padding:12px;outline:none;background:#fff}textarea{min-height:100px;resize:vertical}textarea:focus,input:focus{border-color:#6b9bd4}
+.review{padding:15px 0;border-bottom:1px solid var(--line)}.review:last-child{border:0}.review .rating{color:#e6a82e;letter-spacing:2px}.review .when{font-size:11px;color:var(--muted);margin-top:4px}.review p{font-size:13px;line-height:1.6;margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.field{margin-bottom:13px}
+.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}.status{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6}
+footer{text-align:center;background:#e9eff7;color:#738196;font-size:11px;line-height:1.8;padding:24px}
+@media(max-width:650px){.hero{padding:21px 16px 0}.hero h1{font-size:25px}.nav button{padding:12px 14px}main{padding:0 12px;margin-top:17px}.card{padding:16px}.nutrition{grid-template-columns:repeat(2,1fr)}.date-cell{min-height:75px;padding:6px 3px}.date-cell .preview{font-size:9px}.weekday{font-size:10px}.form-row{grid-template-columns:1fr}.menu{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <div class="brand"><div class="crest" aria-label="송정중학교 교표 모티프">
+   <svg viewBox="0 0 64 64" role="img" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#fff" stroke="#d9e9ff" stroke-width="2"/><circle cx="32" cy="32" r="24" fill="#1d5797"/><path d="M17 39 Q25 22 32 18 Q39 22 47 39 L32 34 Z" fill="#79c8ef"/><path d="M20 42 Q32 32 44 42 L44 47 L20 47 Z" fill="#fff"/><path d="M25 26 L32 19 L39 26 L32 32 Z" fill="#d8f1ff"/><text x="32" y="55" text-anchor="middle" font-size="5.2" fill="#fff" font-weight="700">SONGJUNG</text></svg>
+  </div><div><strong>송정중학교</strong><small>SONGJUNG MIDDLE SCHOOL</small></div></div>
+  <h1>급식 안내</h1><p class="intro">오늘의 식단부터 영양 정보까지, 한눈에 확인하세요.</p>
+  <nav class="nav" aria-label="주 메뉴">
+   <button class="active" data-page="today">오늘의 급식</button><button data-page="month">월간 급식표</button><button data-page="reviews">급식 리뷰</button><button data-page="settings">설정</button>
+  </nav>
+ </div>
+</header>
+<main>
+ <div class="notice">안내: 이 사이트는 학생 개인 프로젝트로 제작한 비공식 급식 안내 페이지입니다. 2026년 11월 식단은 제공된 학교 식단표를 바탕으로 등록했습니다. 학교 공식 홈페이지와 무관합니다.</div>
+ <section id="page-today" class="page active">
+  <div class="card">
+   <div class="eyebrow" id="today-date"></div><h2 style="margin-top:8px">오늘의 급식 🍱</h2>
+   <div id="today-meal" class="meal-banner"><div class="empty">NEIS 급식 정보를 불러오려면 설정에서 인증키를 입력해 주세요.</div></div>
+   <div class="status" id="today-status">학교 코드: 광주교육청 K10 · 7402280</div>
+  </div>
+  <div class="card"><h2>영양 정보 📊</h2><div id="nutrition"><div class="empty">급식 데이터가 연결되면 열량과 영양소가 표시됩니다.</div></div></div>
+ </section>
+ <section id="page-month" class="page">
+  <div class="card">
+   <div class="month-head"><button id="prev-month" aria-label="이전 달">❮</button><div class="month-title" id="month-title"></div><button id="next-month" aria-label="다음 달">❯</button></div>
+   <div class="calendar" id="calendar"></div><p class="muted" style="margin:13px 0 0">급식이 있는 날짜를 선택하면 아래에서 식단을 확인할 수 있습니다.</p>
+  </div>
+  <div class="card" id="picked"><h2>선택한 날짜의 급식</h2><div class="empty">달력에서 날짜를 선택해 주세요.</div></div>
+ </section>
+ <section id="page-reviews" class="page">
+  <div class="card" id="student-register-card">
+   <h2>학생 등록 🎓</h2>
+   <p class="muted" style="line-height:1.7">등록한 학년·반·번호가 리뷰 작성자 표시로 사용됩니다. 실명은 입력하지 않습니다.</p>
+   <div class="form-row">
+    <div class="field"><label for="student-grade">학년</label><select id="student-grade"><option value="">학년 선택</option><option>1</option><option>2</option><option>3</option></select></div>
+    <div class="field"><label for="student-class">반</label><select id="student-class"><option value="">반 선택</option></select></div>
+   </div>
+   <div class="field"><label for="student-number">번호</label><input id="student-number" type="number" min="1" max="50" placeholder="번호 입력"></div>
+   <button class="primary" id="save-student" style="width:100%">학생 정보 등록</button>
+   <div class="status" id="student-status">아직 학생 정보가 등록되지 않았습니다.</div>
+   <p class="status">주의: 현재는 브라우저에만 저장되는 개인용 시제품입니다. 학교에서 신원을 확인하지 않으며, 다른 사람도 임의로 입력할 수 있습니다. 공개 사이트에서 학급·번호를 노출하려면 학교 승인과 안전한 로그인·서버가 필요합니다.</p>
+  </div>
+  <div class="card">
+   <h2>오늘의 급식 평가 ⭐</h2><p class="muted">오늘 급식은 어땠나요? 별점과 짧은 후기를 남겨보세요.</p>
+   <div class="stars" id="star-picker" aria-label="별점 선택"><button class="star" data-value="1" aria-label="1점">★</button><button class="star" data-value="2" aria-label="2점">★</button><button class="star" data-value="3" aria-label="3점">★</button><button class="star" data-value="4" aria-label="4점">★</button><button class="star" data-value="5" aria-label="5점">★</button></div>
+   <div class="muted" id="rating-label" style="margin-bottom:12px">별점을 선택해 주세요.</div>
+   <textarea id="review-text" maxlength="300" placeholder="급식에 대한 의견을 적어주세요. (최대 300자)"></textarea>
+   <button class="primary" id="add-review" style="width:100%;margin-top:12px">리뷰 등록</button>
+   <p class="status">리뷰는 이 브라우저에만 저장됩니다. 학급·번호가 표시되므로 공개 공유 전 개인정보 노출에 유의하세요.</p>
+  </div>
+  <div class="card"><h2>학생 리뷰</h2><div id="review-list"></div></div>
+ </section>
+ <section id="page-settings" class="page">
+  <div class="card">
+   <h2>NEIS 급식 데이터 연결 ⚙️ (선택)</h2>
+   <p class="muted" style="line-height:1.7">NEIS Open API 인증키를 입력하면 급식표를 자동 조회합니다. 인증키는 이 페이지를 닫거나 새로고침하면 사라지며 브라우저 저장소에 보관하지 않습니다.</p>
+   <div class="field"><label for="api-key">NEIS 인증키</label><input id="api-key" type="password" autocomplete="off" placeholder="발급받은 인증키 입력"></div>
+   <div class="form-row">
+    <div class="field"><label for="office-code">교육청 코드</label><input id="office-code" type="text" value="K10"></div>
+    <div class="field"><label for="school-code">학교 코드</label><input id="school-code" type="text" value="7402280"></div>
+   </div>
+   <button class="primary" id="connect-api">인증키 적용 및 급식 불러오기</button>
+   <div class="status" id="api-status">인증키가 없다면 NEIS 교육정보 개방 포털에서 발급받을 수 있습니다.</div>
+   <p style="margin-top:15px"><a href="https://open.neis.go.kr/portal/mainPage.do" target="_blank" rel="noopener" style="color:#2866b2;font-size:13px">NEIS 교육정보 개방 포털 바로가기 ↗</a></p>
+  </div>
+  <div class="card"><h2>학교 정보</h2><p style="font-size:13px;line-height:1.9;margin:0">학교명: 송정중학교<br>교육청 코드 기본값: K10<br>학교 코드 기본값: 7402280<br>급식 데이터 출처: 교육부 NEIS Open API</p><p class="status">학교 코드가 맞지 않거나 조회 오류가 발생하면 NEIS 포털에서 학교명을 검색해 코드를 확인해 주세요.</p></div>
+ </section>
+</main>
+<footer>송정중학교 급식 안내 · 학생 제작 프로젝트<br>급식 데이터 제공: 교육부 NEIS Open API<br>학교 공식 홈페이지와 무관한 비공식 서비스입니다.</footer>
+<script>
+(()=>{
+"use strict";
+const $=id=>document.getElementById(id);
+const today=new Date();let year=today.getFullYear(),month=today.getMonth(),selectedRating=0,apiKey="",officeCode="K10",schoolCode="7402280",mealMap={},selectedDate="";
+let reviews=[];const importedMeals={"20261102":{"dishes":["친환경기장밥","오징어무국(5.6.9.13.17)","★편육(5.6.10.13)","★쫄면야채무침(5.6.13)","★보쌈김치(9)","방울토마토(12)","야채스틱/쌈장(자율)(5.6.13)"],"nutrition":{"energy":"788.28","protein":"49.96","calcium":"232.82","iron":"3.83"}},"20261103":{"dishes":["친환경차수수밥","★수제마늘빵(2.5.6.13)","근대된장국(5.6.9.18)","양배추찜&쌈장(자율)(5.6.13)","콩나물무침(5)","★치즈불닭(2.5.6.13.15.16)","김치류(9)"],"nutrition":{"energy":"807.98","protein":"40.58","calcium":"313.68","iron":"3.67"}},"20261104":{"dishes":["김밥볶음밥(소량)(1.2.5.6.8.10.15.16)","꼬지어묵국(1.2.5.6.9.13)","★로제떡볶이(1.2.5.6.13.16)","만두튀김(1.5.6.10.16.18)","김치류(9)","★파인애플"],"nutrition":{"energy":"924.61","protein":"31.79","calcium":"409.46","iron":"3.43"}},"20261105":{"dishes":["친환경녹미밥","설렁탕&당면(1.9.16)","꽁치김치조림(5.6.9.13)","시금치나물(자율)","★베이컨감자채볶음(10)","김치류(9)","토마토꿀절임(12)"],"nutrition":{"energy":"566.05","protein":"22.09","calcium":"350.57","iron":"8.54"}},"20261106":{"dishes":["크림스파게티(1.2.5.6.10.12.13.15.16)","★수제핫도그(1.2.5.6.13)","쌀밥,된장국(자율)(5.6.9)","김치류(9)","수제오이피클(13)","마시는요거트음료(2)"],"nutrition":{"energy":"773.11","protein":"21.98","calcium":"323.23","iron":"5.30"}},"20261109":{"dishes":["친환경찰홍미밥","★애호박돼지찌개(5.9.10.13)","숙주맛살무침(1.5.6.8)","★안동찜닭(5.6.13.15)","★미니바나나파이(1.2.5.6)","구이김(자율)","김치류(9)"],"nutrition":{"energy":"818.53","protein":"41.92","calcium":"245.29","iron":"3.63"}},"20261110":{"dishes":["친환경찰현미밥","육개장(1.9.13.16)","로메인겉절이(자율)(5.6)","★소세지야채볶음(1.2.5.6.10.12.15.16)","통살새우까스/수제타르타르(1.5.6.9.13)","김치류(9)","★친환경황금향"],"nutrition":{"energy":"898.06","protein":"30.99","calcium":"254.08","iron":"3.84"}},"20261111":{"dishes":["감태마요주먹밥(1.2.5.6.9.13.16.18)","★잔치국수(1.5.6.9.13.16.18)","★찐만두(고/김)(1.5.6.10.16.18)","오징어브로콜리초무침(5.6.13.17)","김치류(9)","★과일푸딩(샤인)"],"nutrition":{"energy":"760.40","protein":"33.77","calcium":"260.34","iron":"4.66"}},"20261112":{"dishes":["친환경찰흑미밥","★콩나물국밥(5.6.9.17)","부추오이무침(5.6.13)","시금치나물(자율)","★광어까스/치폴레(1.5.6.12.13)","김치류(9)","★블루베리요거트(2.13)"],"nutrition":{"energy":"642.73","protein":"32.35","calcium":"369.10","iron":"3.15"}},"20261113":{"dishes":["친환경찰보리밥","사골우거지국(5.6.9.13.16)","★쭈삼불고기(5.6.10.13)","콩튀각실치볶음(5.13)","김치류(9)","★귤","★깻잎무쌈(자율)"],"nutrition":{"energy":"670.48","protein":"41.62","calcium":"246.75","iron":"3.95"}},"20261116":{"dishes":["친환경잡곡밥(5)","★사골떡국(1.9.16)","돈육단호박조림(5.6.10.13)","오이고추된장무침(자율)(5.6.13)","아몬드명엽채볶음(13)","김치류(9)","친환경멜론"],"nutrition":{"energy":"777.17","protein":"40.24","calcium":"228.31","iron":"3.35"}},"20261117":{"dishes":["친환경찰발아현미밥","★순대국(5.6.9.10.13)","도토리묵야채무침(5.6)","삼치카레구이(2.5.6.12.13.16.18)","김치류(9)","★과일샐러드(2.12.13)"],"nutrition":{"energy":"724.26","protein":"33.29","calcium":"291.91","iron":"4.06"}},"20261118":{"dishes":["게살볶음밥(소량)(1.5.6.8.13.18)","★양지쌀국수(5.6.13.15.16.18)","쭈꾸미미나리초무침(자율)(5.6.13)","짜조(1.5.6.10.16.18)","김치류(9)","★사과야쿠르트(2)"],"nutrition":{"energy":"944.18","protein":"33.52","calcium":"298.14","iron":"6.24"}},"20261123":{"dishes":["친환경통밀쌀밥(6)","김치찌개(5.9)","참나물무침(자율)","야채달걀말이(1)","한돈한우떡갈비&파채(1.2.5.6.10.12.15.16)","김치류(9)","청포도"],"nutrition":{"energy":"758.29","protein":"33.20","calcium":"256.86","iron":"5.07"}},"20261124":{"dishes":["친환경차조밥","시금치된장국(5.6.9.18)","열무겉절이(5.6.9.13)","우엉어묵볶음(1.5.6.13)","★콩나물불고기(5.6.10.13)","김치류(자율)(9)","★망고요거트찰떡(2.5.6)"],"nutrition":{"energy":"757.62","protein":"42.94","calcium":"259.09","iron":"4.88"}},"20261125":{"dishes":["★치밥(1.2.5.12.13.15)","황태무국(1.5.6.9)","★시저샐러드(1.2.5.6.10.12.13.15)","견과류멸치볶음(4.5.9.13)","김치류(9)","★유기농포도주스(13)"],"nutrition":{"energy":"919.42","protein":"51.69","calcium":"265.73","iron":"3.88"}},"20261126":{"dishes":["친환경찰흑미밥","★부대찌개(1.2.5.6.9.10.15.16)","건파래볶음(13)","코코넛코다리살강정(1.5.6.13)","김치류(9)","깻잎김치(자율)(5.6.13)","오렌지"],"nutrition":{"energy":"712.72","protein":"35.57","calcium":"224.87","iron":"3.05"}},"20261127":{"dishes":["친환경잡곡밥(5)","★크림카레우동(2.5.6.12.13.16.18)","순두부찌개(1.5.6.9.13.17.18)","청경채무침(자율)(5.6)","★찰보루빵(1.2.5.6)","★고등어갈비구이(5.6.7.13)","김치담그기(9.13)","김치류(9)"],"nutrition":{"energy":"986.50","protein":"38.27","calcium":"555.43","iron":"6.20"}},"20261130":{"dishes":["친환경찰홍미밥","들깨수제비(5.6.9)","연근조림(자율)(5.6.13)","★돼지갈비김치찜(5.6.9.10.13)","청포묵김가루무침(5.6)","김치류(9)","★아이스슈(1.2.5.6)"],"nutrition":{"energy":"848.79","protein":"34.12","calcium":"254.30","iron":"3.74"}}};Object.keys(importedMeals).forEach(k=>{const m=importedMeals[k];mealMap[k]=[{MMEAL_SC_NM:"중식",DISHES:m.dishes,NUTRITION:m.nutrition,DDISH_NM:m.dishes.join("<br>"),CAL_INFO:m.nutrition.energy?m.nutrition.energy+" Kcal":""}];});try{reviews=JSON.parse(localStorage.getItem("sj_meal_reviews")||"[]");if(!Array.isArray(reviews))reviews=[];}catch(e){reviews=[];}
+const keyOf=d=>d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0");
+const pretty=k=>k.slice(0,4)+"년 "+Number(k.slice(4,6))+"월 "+Number(k.slice(6,8))+"일";
+$("today-date").textContent=pretty(keyOf(today));
+function switchPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+name));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));if(name==="reviews")renderReviews();if(name==="month")renderCalendar();}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>switchPage(b.dataset.page)));
+$("prev-month").addEventListener("click",()=>{month--;if(month<0){month=11;year--;}loadMonth();});
+$("next-month").addEventListener("click",()=>{month++;if(month>11){month=0;year++;}loadMonth();});
+function cleanDishes(raw){return(raw||"").replace(/<br\s*\/?>/gi,"\n").replace(/<[^>]*>/g,"").split("\n").map(x=>x.replace(/^★/,"").trim()).filter(Boolean);}
+function make(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
+function showMeal(meal,target){
+ target.innerHTML="";
+ if(!meal){target.append(make("div","empty","해당 날짜에 등록된 급식 정보가 없습니다."));return;}
+ const banner=make("div","meal-banner");
+ banner.append(make("div","meal-emoji","🍚 🥘 🥗"));
+ if(meal.MMEAL_SC_NM)banner.append(make("div","eyebrow",meal.MMEAL_SC_NM));
+ const menu=make("div","menu");
+ const dishes=meal.DISHES||cleanDishes(meal.DDISH_NM);
+ dishes.forEach(name=>menu.append(make("div","menu-item","🍽️ "+name.replace(/^★/,"").replace(/\\(자율\\)/g," (자율)"))));
+ banner.append(menu);
+ if(meal.CAL_INFO)banner.append(make("div","calorie","🔥 총 열량: "+meal.CAL_INFO));
+ const n=meal.NUTRITION;
+ if(n&&n.energy){
+  const grid=make("div","nutrition");
+  [["열량",n.energy+" kcal"],["단백질",n.protein+" g"],["칼슘",n.calcium+" mg"],["철분",n.iron+" mg"]].forEach(([label,value])=>{const item=make("div","nutri");item.append(make("b","",value),make("span","",label));grid.append(item);});
+  banner.append(grid);
+ }
+ const allergen=make("div","status","괄호 안 숫자는 알레르기 유발 식품 표시입니다. (예: 1 난류, 2 우유, 5 대두, 6 밀, 9 새우, 10 돼지고기, 15 닭고기, 16 쇠고기, 17 오징어)");
+ banner.append(allergen);
+ target.append(banner);
+}
+function showNutrition(meal){
+ const box=$("nutrition");box.innerHTML="";
+ if(!meal||!meal.NUTRITION||!meal.NUTRITION.energy){box.append(make("div","empty","영양 정보가 제공되지 않습니다."));return;}
+ const n=meal.NUTRITION,grid=make("div","nutrition");
+ [["열량",n.energy+" kcal"],["단백질",n.protein+" g"],["칼슘",n.calcium+" mg"],["철분",n.iron+" mg"]].forEach(([label,value])=>{const item=make("div","nutri");item.append(make("b","",value),make("span","",label));grid.append(item);});
+ box.append(grid);
+}
+function renderToday(){const rows=mealMap[keyOf(today)]||[];showMeal(rows[0],$("today-meal"));showNutrition(rows[0]);$("today-status").textContent=rows.length?"NEIS 급식 데이터 조회 완료":"오늘 조회된 급식 데이터가 없습니다.";}
+function renderCalendar(){
+ $("month-title").textContent=year+"년 "+(month+1)+"월";const grid=$("calendar");grid.innerHTML="";
+ ["일","월","화","수","목","금","토"].forEach(d=>grid.append(make("div","weekday",d)));
+ const first=new Date(year,month,1),last=new Date(year,month+1,0);
+ for(let i=0;i<first.getDay();i++)grid.append(make("div","date-cell",""));
+ for(let d=1;d<=last.getDate();d++){
+  const date=new Date(year,month,d),k=keyOf(date),cell=document.createElement("button");cell.type="button";cell.className="date-cell";
+  if(k===keyOf(today))cell.classList.add("today");if(k===selectedDate)cell.classList.add("selected");
+  cell.append(make("span","daynum",String(d)));
+  const rows=mealMap[k]||[];
+  if(rows.length){const preview=make("span","preview");preview.textContent=(rows[0].DISHES||cleanDishes(rows[0].DDISH_NM)).slice(0,2).join(", ");cell.append(preview);}
+  else cell.append(make("span","preview",apiKey?"급식 정보 없음":"연결 후 표시"));
+  cell.addEventListener("click",()=>selectDay(k));grid.append(cell);
+ }
+}
+function selectDay(k){selectedDate=k;const card=$("picked");card.innerHTML="";card.append(make("h2","",pretty(k)+" 급식"));const rows=mealMap[k]||[];if(!rows.length)card.append(make("div","empty","조회된 급식이 없습니다."));else rows.forEach(m=>{const holder=document.createElement("div");showMeal(m,holder);card.append(holder);});renderCalendar();}
+async function fetchMeals(from,to){
+ const params=new URLSearchParams({Type:"json",pIndex:"1",pSize:"100",ATPT_OFCDC_SC_CODE:officeCode,SD_SCHUL_CODE:schoolCode,MLSV_FROM_YMD:from,MLSV_TO_YMD:to});
+ if(apiKey)params.set("KEY",apiKey);
+ const res=await fetch("https://open.neis.go.kr/hub/mealServiceDietInfo?"+params.toString());
+ if(!res.ok)throw new Error("NEIS 서버 응답 오류 ("+res.status+")");
+ const data=await res.json();
+ if(data.RESULT&&data.RESULT.CODE&&!data.mealServiceDietInfo)throw new Error(data.RESULT.MESSAGE||data.RESULT.CODE);
+ const rows=data.mealServiceDietInfo?.[1]?.row||[];return rows;
+}
+async function loadMonth(){
+ $("month-title").textContent=year+"년 "+(month+1)+"월";
+ if(!apiKey){renderCalendar();$("api-status").textContent="등록된 2026년 11월 식단은 인증키 없이 표시됩니다. 다른 달은 NEIS 연결을 사용할 수 있습니다.";return;}
+ $("api-status").textContent="급식 데이터를 불러오는 중...";
+ const from=keyOf(new Date(year,month,1)),to=keyOf(new Date(year,month+1,0));
+ try{const rows=await fetchMeals(from,to);mealMap={};rows.forEach(r=>(mealMap[r.MLSV_YMD]??=[]).push(r));$("api-status").textContent="조회 완료: "+rows.length+"건의 급식 정보";renderCalendar();renderToday();if(selectedDate)selectDay(selectedDate);}
+ catch(e){$("api-status").textContent="조회 실패: "+e.message+" · 인증키와 학교 코드를 확인해 주세요.";renderCalendar();}
+}
+$("connect-api").addEventListener("click",()=>{apiKey=$("api-key").value.trim();officeCode=$("office-code").value.trim()||"K10";schoolCode=$("school-code").value.trim()||"7402280";if(!apiKey){$("api-status").textContent="NEIS 인증키를 입력해 주세요.";return;}loadMonth();});
+function renderReviews(){const list=$("review-list");list.innerHTML="";if(!reviews.length){list.append(make("div","empty","아직 등록된 리뷰가 없습니다. 첫 번째 리뷰를 남겨보세요!"));return;}[...reviews].reverse().forEach(r=>{const item=make("div","review"),rating=make("div","rating","★".repeat(r.rating)+"☆".repeat(5-r.rating)),when=make("div","when",r.date),body=make("p","",r.text||"내용 없는 별점 평가");const author=make("div","when",r.student||"미등록 학생");item.append(author,rating,when,body);list.append(item);});}
+let studentProfile=null;try{studentProfile=JSON.parse(localStorage.getItem("sj_student_profile")||"null");}catch(e){studentProfile=null;}
+for(let i=1;i<=12;i++)$("student-class").append(new Option(i+"반",String(i)));
+function renderStudentProfile(){
+ if(studentProfile){$("student-grade").value=String(studentProfile.grade);$("student-class").value=String(studentProfile.classNo);$("student-number").value=String(studentProfile.number);$("student-status").textContent="등록 정보: "+studentProfile.grade+"학년 "+studentProfile.classNo+"반 "+studentProfile.number+"번";}
+}
+$("save-student").addEventListener("click",()=>{
+ const grade=Number($("student-grade").value),classNo=Number($("student-class").value),number=Number($("student-number").value);
+ if(![1,2,3].includes(grade)||!Number.isInteger(classNo)||classNo<1||classNo>12||!Number.isInteger(number)||number<1||number>50){alert("학년, 반, 번호를 정확히 선택해 주세요.");return;}
+ studentProfile={grade,classNo,number};
+ try{localStorage.setItem("sj_student_profile",JSON.stringify(studentProfile));}
+ catch(e){alert("브라우저 저장 공간에 저장하지 못했습니다.");return;}
+ renderStudentProfile();alert("이 브라우저에 학생 정보가 저장되었습니다.");
+});
+renderStudentProfile();
+document.querySelectorAll(".star").forEach(b=>b.addEventListener("click",()=>{selectedRating=Number(b.dataset.value);document.querySelectorAll(".star").forEach(s=>s.classList.toggle("on",Number(s.dataset.value)<=selectedRating));$("rating-label").textContent=selectedRating+"점 선택";}));
+$("add-review").addEventListener("click",()=>{if(!studentProfile){alert("먼저 학생 등록을 완료해 주세요.");$("student-register-card").scrollIntoView({behavior:"smooth"});return;}if(!selectedRating){alert("별점을 먼저 선택해 주세요.");return;}const text=$("review-text").value.trim();reviews.push({rating:selectedRating,text,date:pretty(keyOf(today)),student:studentProfile.grade+"학년 "+studentProfile.classNo+"반 "+studentProfile.number+"번"});try{localStorage.setItem("sj_meal_reviews",JSON.stringify(reviews));}catch(e){alert("브라우저 저장 공간에 문제가 발생했습니다.");return;}selectedRating=0;$("review-text").value="";$("rating-label").textContent="별점을 선택해 주세요.";document.querySelectorAll(".star").forEach(s=>s.classList.remove("on"));renderReviews();alert("이 브라우저에 리뷰가 저장되었습니다.");});
+renderCalendar();renderToday();renderReviews();
+})();
+</script>
+</body>
+</html>
